@@ -1,0 +1,34 @@
+# Contraintes Intégrité Bases de Données Communes
+=================================================
+
+## Clés étrangères
+DEPARTEMENTS.Reg ⊆ REGIONS.Reg
+COMMUNE.Dep ⊆ DEPARTEMENTS.Dep
+DEPARTEMENTS_CHEFLIEU.Dep ⊆ DEPARTEMENTS.Dep
+DEPARTEMENTS_CHEFLIEU.Cheflieu ⊆ COMMUNE.Com
+REGIONS_CHEFLIEU.Reg ⊆ REGIONS.Reg
+REGIONS_CHEFLIEU.Cheflieu ⊆ COMMUNES.Com
+STATISQUES.Codegeo ⊆ COMMUNES.Com
+
+## Contraintes
+
+### REGIONS
+REGIONS.Libelle NOT NULL
+REGIONS.NCC NOT NULL
+
+### DEPARTEMENTS
+DEPARTEMENTS.NCC NOT NULL
+DEPARTEMENTS.Libelle NOT NULL
+
+### COMMUNES
+COMMUNES.NCC NOT NULL
+COMMUNES.Libelle NOT NULL
+
+### STATISTIQUES
+UNIQUE (STATISTIQUES.Codegeo & STATISTIQUES.Annee)
+STATISTIQUES.Population >= 0
+STATISTIQUES.Logements >= 0
+STATISTIQUES.Logements_vacants >= 0
+STATISTIQUES.Logements_secondaires >= 0
+STATISTIQUES.Résidences >= 0
+STATISTIQUES.Population_menages >= 0
