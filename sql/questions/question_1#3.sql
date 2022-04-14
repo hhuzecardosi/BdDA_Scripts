@@ -1,7 +1,7 @@
 -- Les villes de chaque régions avec la population la plus élevée
 -- ne retourne que 17 lignes car mayotte n'a pas de ville dans la db
 
-select c.com, c.libelle, r.ncc region,valeur_max::integer population
+select c.com, c.libelle, r.libelle region,valeur_max::integer population
 from communes c
 join departements d using(dep)
 join regions r using(reg)
