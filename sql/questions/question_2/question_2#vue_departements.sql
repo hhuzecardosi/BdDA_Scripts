@@ -4,4 +4,4 @@ create or replace view vue_infos_departements as
                 join communes c on s.codgeo = c.com
                 join departements d on d.dep = c.dep
                 where s.indicateur = 'POP'
-        group by annee, population, departement, d.dep;
+        group by annee, departement, d.dep;
