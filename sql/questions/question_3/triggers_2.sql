@@ -11,5 +11,5 @@ begin
     return NULL;
 end; $pop_update$ language plpgsql;
 
-create or replace trigger trig_update_population before insert or update or delete on statistiques
+create or replace trigger trig_update_population after insert or update or delete on statistiques
     for each row execute procedure fun_call_proc_update_population();
