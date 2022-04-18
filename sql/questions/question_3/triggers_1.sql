@@ -5,13 +5,12 @@ create or replace function fun_prevent() returns trigger as $prevent$
             '% on % is not allowed.',
             TG_OP, TG_TABLE_NAME;
     end;
-    return NULL;
 $prevent$ language plpgsql;
 
 
-create or replace trigger trig_prevent_regions before insert or update or delete on regions
+create or replace trigger trig_prevent_regions before insert or update or delete or truncate on regions
     for each statement execute procedure fun_prevent();
 
 
-create or replace trigger trig_prevent_departements before insert or update or delete on departements
+create or replace trigger trig_prevent_departements before insert or update or delete or truncate on departements
     for each statement execute procedure fun_prevent();
