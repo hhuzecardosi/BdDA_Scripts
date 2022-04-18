@@ -1,5 +1,5 @@
 create or replace procedure proc_update_population()
-LANGUAGE plpgsql
+language plpgsql
 as $$
   declare
     pop record;
