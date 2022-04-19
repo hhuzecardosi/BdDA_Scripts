@@ -1,3 +1,8 @@
+-- index
+drop index if exists idx_dep_pop;
+drop index if exists idx_val;
+drop index if exists idx_annee;
+
 -- fonctions de triggers
 drop function if exists fun_prevent cascade;
 drop function if exists fun_call_proc_update_population cascade;
