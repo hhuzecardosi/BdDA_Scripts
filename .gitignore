@@ -1,2 +1,3 @@
 csv/filtered/*
 .vscode
+.env

@@ -9,14 +9,14 @@ from (
             where s.indicateur = 'POP'
         group by annee) years_data
 ) years_increase
-join (
+left join (
     select s1.annee annee, sum(valeur::integer) as total_naissances
     from statistiques s1
     where s1.indicateur = 'NAIS'
     group by s1.annee
 ) births
 on births.annee::integer = years_increase.annee::integer
-join (
+left join (
     select s2.annee annee, sum(valeur::integer) as total_deces
     from statistiques s2
     where s2.indicateur = 'DECE'

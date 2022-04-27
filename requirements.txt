@@ -1,0 +1,6 @@
+pandas
+numpy
+psycopg2
+nbformat
+python-dotenv
+typing_extensions
